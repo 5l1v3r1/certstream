@@ -1,0 +1,7 @@
+[domains]
+monitor = domain1.tld,
+    domain2.tld,
+    domain3.tld
+[slack]
+# Name without #. It will be added.
+channel = certificates
