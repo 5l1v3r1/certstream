@@ -41,16 +41,12 @@ def print_callback(message, context):
     if message['message_type'] == "certificate_update":
         all_domains = message['data']['leaf_cert']['all_domains']
         
-        if len(all_domains) == 0:
-            domain = "NULL"
-        else:
-            domain = all_domains[0]
         for monitored in monitor:
             regex = re.compile(".*\." + monitored + "$")
             for domain in all_domains:
                 if regex.search(domain):
-                    print_time_message("Domain: " + domain + "\n" + "Received messaged -> {}".format(message))
-                    send_to_slack("Domain: " + domain + "\n" + "Received messaged -> {}".format(message))
+                    print_time_message("Domain: " + domain + "(" + str(regex) +")\n" + "Received messaged -> {}".format(message))
+                    send_to_slack("Domain: " + domain + "(" + str(regex) +")\n" + "Received messaged -> {}".format(message))
                     break
 
 def on_open(instance):
