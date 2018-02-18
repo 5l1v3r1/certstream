@@ -46,7 +46,7 @@ def print_callback(message, context):
             for domain in all_domains:
                 if regex.search(domain):
                     print_time_message("Domain: " + domain + "(" + str(regex) +")\n" + "Received messaged -> {}".format(message))
-                    send_to_slack("Domain: " + domain + "(" + str(regex) +")\n" + "Received messaged -> {}".format(message))
+                    send_to_slack("Domain: " + domain + "(" + str(regex) +")\n" + "Alternate domains: " + str(all_domains))
                     break
 
 def on_open(instance):
