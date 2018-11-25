@@ -69,4 +69,4 @@ channel = config.get('slack', 'channel')
 
 logging.basicConfig(format='[%(levelname)s:%(name)s] %(asctime)s - %(message)s', level=logging.INFO)
 
-certstream.listen_for_events(print_callback)
+certstream.listen_for_events(print_callback, "wss://certstream.calidog.io")
